@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Move Button</title>
+<style>
+  
+    body {
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #000000;
+    }
+
+    #moveButton {
+        background-color: #f933f5;
+        color: rgb(0, 0, 0);
+        padding: 10px 20px;
+        border: none;
+        border-radius: 7px;
+        cursor: pointer;
+        transition: transform 0.3s ease;
+        position: absolute;
+    }
+
+    #moveButton:hover {
+        transform: scale(1.1);
+    }
+
+    .content {
+        position: relative;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    #helloText {
+    /* Căn lề trái cho văn bản */
+    color: white;
+    font-size: 24px; /* Đổi kích thước văn bản nếu cần */
+    position: absolute;
+    top: 20px;
+    left: 0px;
+    margin-left: 0; /* Đặt vị trí của văn bản gần bên trái của trang */
+}
+</style>
+
+</head>
+<body>
+  <script>
+    // Lấy liên kết của trang web
+    var pageURL = window.location.href;
+    console.log("URL của trang web: " + pageURL);
+</script>
+    
+<div class="content">
+    <button id="moveButton">Xem ảnh</button>
+    <div id="helloText">Hello</div> <!-- Văn bản căn lề trái -->
+   
+</div>
+
+<script>
+    var button = document.getElementById("moveButton");
+
+    button.addEventListener("mouseenter", function(event) {
+        var windowWidth = window.innerWidth;
+        var windowHeight = window.innerHeight;
+        var buttonWidth = button.offsetWidth;
+        var buttonHeight = button.offsetHeight;
+        var newX = Math.random() * (600);
+        var newY = Math.random()* (600);
+        button.style.left = newX + "px";
+        button.style.top = newY + "px";
+    });
+</script>
+</body>
+</html>
